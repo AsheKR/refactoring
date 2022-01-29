@@ -27,7 +27,7 @@ interface Order {
 
 export interface Invoice {
     customer: string
-    orders: [Order]
+    orders: Order[]
     dueDate?: Date
 }
 

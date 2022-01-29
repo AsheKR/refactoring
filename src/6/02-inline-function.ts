@@ -29,12 +29,12 @@ interface aCustomer{
 }
 
 export function reportLines(aCustomer: aCustomer) {
-    const lines: [[string, string]?] = [];
+    const lines: Array<[string, string]> = [];
     gatherCustomerData(lines, aCustomer);
     return lines;
 }
 
-function gatherCustomerData(out: [[string, string]?], aCustomer: aCustomer) {
+function gatherCustomerData(out: Array<[string, string]>, aCustomer: aCustomer) {
     out.push(['name', aCustomer.name]);
     out.push(['location', aCustomer.location]);
 }
