@@ -23,6 +23,8 @@ function moreThanFiveLateDeliveries(aDriver: DriverInterface) {
     return aDriver.numberOfLateDeliveries > 5;
 }
 
+// -----------------------------------------------------------------------------
+
 interface CustomerInterface {
     name: string
     location: string

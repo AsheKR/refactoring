@@ -15,6 +15,7 @@ export function circum(radius: number) {
     return 2 * Math.PI * radius
 }
 
+// -----------------------------------------------------------------------------
 
 export class Book {
     private _reservations: string[] = []
@@ -37,6 +38,8 @@ interface AddressInterface {
 export interface CustomerInterface {
     address: AddressInterface
 }
+
+// -----------------------------------------------------------------------------
 
 function inNewEngland(aCustomer: CustomerInterface) {
     return ['MA', 'CT', 'ME', 'VT', 'NH', 'RI'].includes(aCustomer.address.state)

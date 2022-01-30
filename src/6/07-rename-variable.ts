@@ -20,4 +20,6 @@ function setTpHd(obj: ObjInterface)  {
     tpHd = obj.articleTitle
 }
 
+// -----------------------------------------------------------------------------
+
 const cpNm = '애크미 구스베리'
