@@ -6,7 +6,7 @@
 */
 
 
-interface Obj{
+interface ObjInterface{
     articleTitle: string
 }
 
@@ -16,7 +16,7 @@ function getResult() {
     return `<h1>${tpHd}</h1>`
 }
 
-function setTpHd(obj: Obj)  {
+function setTpHd(obj: ObjInterface)  {
     tpHd = obj.articleTitle
 }
 

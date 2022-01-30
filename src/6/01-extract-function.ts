@@ -20,14 +20,14 @@
 */
 
 
-interface Order {
+interface OrderInterface {
     amount: number
 }
 
 
-export interface Invoice {
+interface InvoiceInterface {
     customer: string
-    orders: Order[]
+    orders: OrderInterface[]
     dueDate?: Date
 }
 
@@ -38,7 +38,7 @@ class Clock {
     }
 }
 
-export function printOwing(invoice: Invoice) {
+export function printOwing(invoice: InvoiceInterface) {
     let outstanding = 0
 
     console.log('*****************')

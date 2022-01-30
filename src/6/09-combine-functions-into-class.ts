@@ -8,7 +8,7 @@
 */
 
 
-interface Reading {
+interface ReadingInterface {
     customer: string
     quantity: number
     month: number
@@ -55,7 +55,7 @@ export function clientC() {
     const aReading = aquireReading();
     const baseChargeAmount = calculateBaseCharge(aReading)
 
-    function calculateBaseCharge(aReading: Reading) {
+    function calculateBaseCharge(aReading: ReadingInterface) {
         return baseRate(aReading.month, aReading.year) * aReading.quantity
     }
 

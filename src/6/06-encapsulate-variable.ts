@@ -19,6 +19,17 @@
 기본 캡슐화 기법으로 참조 데이터를 캡슐화하면, 필드로의 접근이 가능하게 된다. 
 때문에 그 값을 바꿀 수 없게 참조 복제본을 반환하도록 수정한다.
 참조에 참조를 막기 위해서는 레코드를 캡슐화한다.
+
+여기서 클래스가 처음 나와서 용어 세개를 정리했다.
+- 데이터는 두 가지 뜻을 가지고 있는 것 같다.
+    - 값으로써의 데이터
+    - 참조로써의 데이터 ( 변수 )
+- 필드
+    - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/Public_class_fields
+    - 필드는 인스턴스 변수를 뜻하는 것 같다
+- 레코드
+    - https://tc39.es/proposal-record-tuple/
+    - Deeply Immutable Object 를 뜻한다
 */
 
 

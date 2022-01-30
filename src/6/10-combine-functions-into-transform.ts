@@ -14,7 +14,7 @@
 */
 import * as _ from 'lodash'
 
-interface Reading {
+interface ReadingInterface {
     customer: string
     quantity: number
     month: number
@@ -41,7 +41,7 @@ function baseRate(month: number, year: number) {
 }
 
 
-function calcBaseCharge(aReading: Reading) {
+function calcBaseCharge(aReading: ReadingInterface) {
     return baseRate(aReading.month, aReading.year) * aReading.quantity
 }
 
@@ -64,7 +64,7 @@ export function clientC() {
     const aReading = aquireReading();
     const baseChargeAmount = calculateBaseCharge(aReading)
 
-    function calculateBaseCharge(aReading: Reading) {
+    function calculateBaseCharge(aReading: ReadingInterface) {
         return baseRate(aReading.month, aReading.year) * aReading.quantity
     }
 

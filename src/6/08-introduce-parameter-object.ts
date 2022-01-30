@@ -11,31 +11,31 @@
 */
 
 
-interface Reading {
+interface ReadingInterface {
     temp: number
     time: string
 }
 
 
-interface Station {
+interface StationInterface {
     name: string
-    readings: Array<Reading>
+    readings: Array<ReadingInterface>
 }
 
 
-interface OperatingPlan {
+interface OperatingPlanInterface {
     temperatureFloor: number
     temperatureCeiling: number
 }
 
 
 
-function readingsOutsideRange(station: Station, min: number, max: number) {
+function readingsOutsideRange(station: StationInterface, min: number, max: number) {
     return station.readings.filter(r => r.temp < min || r.temp > max)
 }
 
 export function callReadingOutsideRange() {
-    const station: Station = {
+    const station: StationInterface = {
         name: 'ZB1',
         readings: [
             {temp: 47, time: "2016-11-10 09:10"},
@@ -45,7 +45,7 @@ export function callReadingOutsideRange() {
             {temp: 51, time: "2016-11-10 09:50"},
         ]
     }
-    const operatingPlan: OperatingPlan = {
+    const operatingPlan: OperatingPlanInterface = {
         temperatureFloor: 50,
         temperatureCeiling: 55
     }

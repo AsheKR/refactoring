@@ -7,19 +7,19 @@
 */
 
 
-interface Product {
+interface ProductInterface {
     basePrice: number
     discountThreshold: number
     discountRate: number
 }
 
-interface ShippingMethod {
+interface ShippingMethodInterface {
     discountThreshold: number
     discountFee: number
     feePerCase: number
 }
  
-export function priceOrder(product: Product, quantity: number, shippingMethod: ShippingMethod)  {
+export function priceOrder(product: ProductInterface, quantity: number, shippingMethod: ShippingMethodInterface)  {
     const basePrice = product.basePrice * quantity
     const discount = Math.max(quantity - product.discountThreshold, 0) * product.basePrice * product.discountRate
     const shippingPerCase = (basePrice > shippingMethod.discountThreshold ? shippingMethod.discountFee : shippingMethod.feePerCase)

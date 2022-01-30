@@ -29,19 +29,19 @@ export class Book {
 }
 
 
-interface Address {
+interface AddressInterface {
     state: string
 }
 
 
-export interface aCustomer {
-    address: Address
+export interface CustomerInterface {
+    address: AddressInterface
 }
 
-function inNewEngland(aCustomer: aCustomer) {
+function inNewEngland(aCustomer: CustomerInterface) {
     return ['MA', 'CT', 'ME', 'VT', 'NH', 'RI'].includes(aCustomer.address.state)
 }
 
-export function isInNewEnglandInSomeCustomers(someCustomers: aCustomer[]) {
+export function isInNewEnglandInSomeCustomers(someCustomers: CustomerInterface[]) {
     return someCustomers.filter(c => inNewEngland(c));
 }

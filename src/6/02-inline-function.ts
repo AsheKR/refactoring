@@ -10,31 +10,31 @@
 */
 
 
-interface aDriver{
+interface DriverInterface {
     numberOfLateDeliveries: number
 }
 
 
-export function rating(aDriver: aDriver) {
+export function rating(aDriver: DriverInterface) {
     return moreThanFiveLateDeliveries(aDriver) ? 2 : 1;
 }
 
-function moreThanFiveLateDeliveries(aDriver: aDriver) {
+function moreThanFiveLateDeliveries(aDriver: DriverInterface) {
     return aDriver.numberOfLateDeliveries > 5;
 }
 
-interface aCustomer{
+interface CustomerInterface {
     name: string
     location: string
 }
 
-export function reportLines(aCustomer: aCustomer) {
+export function reportLines(aCustomer: CustomerInterface) {
     const lines: Array<[string, string]> = [];
     gatherCustomerData(lines, aCustomer);
     return lines;
 }
 
-function gatherCustomerData(out: Array<[string, string]>, aCustomer: aCustomer) {
+function gatherCustomerData(out: Array<[string, string]>, aCustomer: CustomerInterface) {
     out.push(['name', aCustomer.name]);
     out.push(['location', aCustomer.location]);
 }

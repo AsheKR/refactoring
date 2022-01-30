@@ -1,4 +1,4 @@
-import {Book, circum, aCustomer, isInNewEnglandInSomeCustomers} from '../../src/6/05-change-function-declaration'
+import {Book, circum, isInNewEnglandInSomeCustomers} from '../../src/6/05-change-function-declaration'
 import {expect, describe, it} from '@jest/globals'
 
 
@@ -18,7 +18,7 @@ describe('Test Book', () => {
 
 describe('Test isNewEngland', () => {
     it('default', async () => {
-        const customers: aCustomer[] = [
+        const customers = [
             {'address': {'state': 'MA'}},
             {'address': {'state': 'CT'}},
             {'address': {'state': 'ME'}},
