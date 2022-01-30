@@ -2,22 +2,18 @@ import {Book, circum, isInNewEnglandInSomeCustomers} from '../../src/6/05-change
 import {expect, describe, it} from '@jest/globals'
 
 
-describe('Test circum', () => {
-    it('default', async () => {
+describe('Test 06.05. Change Fucntion Declaration', () => {
+    it('circum', async () => {
         expect(circum(5)).toBeCloseTo(31.415)
     })
-})
 
-describe('Test Book', () => {
     it('addReservation', async () => {
         const book = new Book()
         book.addReservation('Customer')
         expect(book.reservations.length).toEqual(1)
     })
-})
 
-describe('Test isNewEngland', () => {
-    it('default', async () => {
+    it('inNewEngland', async () => {
         const customers = [
             {'address': {'state': 'MA'}},
             {'address': {'state': 'CT'}},

@@ -2,8 +2,8 @@ import {priceOrder} from '../../src/6/11-split-phase'
 import {expect, describe, it} from '@jest/globals'
 
 
-describe('Test priceOrder', () => {
-    it('default', async () => {
+describe('Test 06.11 Split Phase', () => {
+    it('priceOrder', async () => {
         const product = {
             basePrice: 100,
             discountThreshold: 30,

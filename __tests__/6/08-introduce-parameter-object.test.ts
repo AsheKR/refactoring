@@ -2,7 +2,7 @@ import {callReadingOutsideRange} from '../../src/6/08-introduce-parameter-object
 import {expect, describe, it} from '@jest/globals'
 
 
-describe('Test readingOutsideRange', () => {
+describe('Test 06.08. Inroduce Parameter Object', () => {
     it('callReadingOutsideRange', async () => {
         const result = callReadingOutsideRange()
         expect(result).toEqual( [

@@ -2,7 +2,7 @@ import {Person, Course, getClientA, clientB, clientC} from '../../src/7/02-encap
 import {expect, describe, it} from '@jest/globals'
 
 
-describe('Test Encapsulate Collection', () => {
+describe('Test 07.02. Encapsulate Collection', () => {
     it('clientA', async () => {
         const aPerson = new Person('Ashe')
         aPerson.courses = [new Course('A', true), new Course('B', false), new Course('C', true)]

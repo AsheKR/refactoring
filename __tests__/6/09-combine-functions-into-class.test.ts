@@ -2,7 +2,7 @@ import {clientA, clientB, clientC} from '../../src/6/09-combine-functions-into-c
 import {expect, describe, it} from '@jest/globals'
 
 
-describe('Test client', () => {
+describe('Test 06.09. Combine Functions Into Class', () => {
     it('clientA', async () => {
         expect(clientA()).toEqual(20170)
     })

@@ -2,7 +2,7 @@ import {createSpaceShip, changeDefaultOwner, defaultOwner} from '../../src/6/06-
 import {expect, describe, it} from '@jest/globals'
 
 
-describe('Test encapsulate', () => {
+describe('Test 06.06 Encapsulate Variable', () => {
     it('defaultOwner', async () => {
         expect(defaultOwner).toEqual({firstName: '마틴', lastName: '파울러'})
     })

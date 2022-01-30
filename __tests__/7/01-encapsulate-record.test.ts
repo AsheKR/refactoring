@@ -2,7 +2,7 @@ import {customerData, compareUsage, somethingMethod, getOrganization, getResult,
 import {expect, describe, it} from '@jest/globals'
 
 
-describe('Test Encapsulate Record', () => {
+describe('Test 07.01. Encapsulate Record', () => {
     it('getResult', async () => {
         expect(getResult()).toEqual('<h1>애크미 구스베리</h1>')
     })
