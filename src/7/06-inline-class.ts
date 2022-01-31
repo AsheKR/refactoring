@@ -4,13 +4,9 @@
 이는 코드를 재구성할 때 흔히 사용하는 방식이기도 한다.
 */
 
-export class TrackingInformation {
-    private _shippingCompany: string
-    private _trackNumber: string
-    constructor(shippingCompany: string, trackNumber: string) {
-        this._shippingCompany = shippingCompany
-        this._trackNumber = trackNumber
-    }
+class TrackingInformation {
+    private _shippingCompany: string | undefined
+    private _trackNumber: string | undefined
     get shippingCompany() { return this._shippingCompany }
     set shippingCompany(arg) { this._shippingCompany = arg }
     get trackNumber() { return this._trackNumber }
@@ -21,16 +17,22 @@ export class TrackingInformation {
 }
 
 
-export class Shipment {
-    private _trackingInformation: TrackingInformation
-    constructor(trackingInformation: TrackingInformation) {
-        this._trackingInformation = trackingInformation
-    }
+class Shipment {
+    private _trackingInformation: TrackingInformation | undefined
     get trackingInfo() {
-        return this._trackingInformation.display;
+        return this._trackingInformation?.display;
     }
     get trackingInformation() { return this._trackingInformation }
     set trackingInformation(aTrackingInformation) {
         this._trackingInformation = aTrackingInformation
     }
+}
+
+export function clientA() {
+    const trackingInformation = new TrackingInformation()
+    trackingInformation.shippingCompany = 'shippingCompany'
+    trackingInformation.trackNumber = 'trackNumber'
+    const shipment = new Shipment()
+    shipment.trackingInformation = trackingInformation
+    return shipment.trackingInfo
 }
