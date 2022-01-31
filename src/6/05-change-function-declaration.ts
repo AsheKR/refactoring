@@ -11,6 +11,7 @@
 마이그레이션 절차를 따르면 폐기 예정임을 알릴 수 있고 앞으로는 새 메서드를 사용하고 순차적으로 없앨 수 있다.
 */
 
+// circumference 로 변경해야 함
 export function circum(radius: number) {
     return 2 * Math.PI * radius
 }
@@ -24,22 +25,25 @@ export class Book {
         return this._reservations
     }
 
+    // 우선 순위 큐 지원을 위해 isPriority 매개변수를 추가하려 한다.
     addReservation(customer: string) {
         this._reservations.push(customer)
     }
 }
 
 
+// -----------------------------------------------------------------------------
+
 interface AddressInterface {
     state: string
 }
+
 
 
 export interface CustomerInterface {
     address: AddressInterface
 }
 
-// -----------------------------------------------------------------------------
 
 function inNewEngland(aCustomer: CustomerInterface) {
     return ['MA', 'CT', 'ME', 'VT', 'NH', 'RI'].includes(aCustomer.address.state)
