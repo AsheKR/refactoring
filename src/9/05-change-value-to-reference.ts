@@ -20,7 +20,7 @@ class Order {
 }
 
 
-class Customer {
+export class Customer {
     private _id: string
     constructor(id: string) {
         this._id = id
