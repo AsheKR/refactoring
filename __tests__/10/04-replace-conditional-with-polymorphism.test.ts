@@ -74,6 +74,6 @@ describe('Test 10.04. Replace Conditional With Polymorphism', () => {
       {zone: '중국', profit: -2},
       {zone: '서아프리카', profit: 7}
     ]
-    expect(rating(voyage, history)).toEqual(8)
+    expect(rating(voyage, history)).toEqual('B')
   })
 })
