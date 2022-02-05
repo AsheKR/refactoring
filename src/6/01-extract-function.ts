@@ -19,40 +19,41 @@
         - 각각을 반환하는 함수 여러개로 만든다.
 */
 
-
 interface OrderInterface {
-    amount: number
+  amount: number
 }
-
 
 interface InvoiceInterface {
-    customer: string
-    orders: OrderInterface[]
-    dueDate?: Date
+  customer: string
+  orders: OrderInterface[]
+  dueDate?: Date
 }
 
-
 class Clock {
-    static get today() {
-        return new Date()
-    }
+  static get today() {
+    return new Date()
+  }
 }
 
 export function printOwing(invoice: InvoiceInterface) {
-    let outstanding = 0
+  let outstanding = 0
 
-    console.log('*****************')
-    console.log('**** 고객 채무 ****')
-    console.log('*****************')
+  console.log('*****************')
+  console.log('**** 고객 채무 ****')
+  console.log('*****************')
 
-    for (const o of invoice.orders) {
-        outstanding += o.amount
-    }
+  for (const o of invoice.orders) {
+    outstanding += o.amount
+  }
 
-    const today = Clock.today;
-    invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30)
+  const today = Clock.today
+  invoice.dueDate = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() + 30
+  )
 
-    console.log(`고객명: ${invoice.customer}`)
-    console.log(`채무액: ${outstanding}`)
-    console.log(`마감일: ${invoice.dueDate.toLocaleDateString()}`)
+  console.log(`고객명: ${invoice.customer}`)
+  console.log(`채무액: ${outstanding}`)
+  console.log(`마감일: ${invoice.dueDate.toLocaleDateString()}`)
 }

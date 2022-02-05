@@ -9,38 +9,46 @@
 한편 값 객체의 이런 특성 때문에 공유 객체로 사용할때는 사용하면 안된다. 변경 시 다른 객체 모두에게 변경을 알려야 하기 때문이다.
 */
 
-
 class Person {
-    private _telephoneNumber: TelephoneNumber
-    constructor(officeAreaCode: string, officeNumber: string) {
-        this._telephoneNumber = new TelephoneNumber(officeAreaCode, officeNumber)
-    }
-    get telephoneNumber() { return `(${this.officeAreaCode}) ${this.officeNumber}` }
-    get officeAreaCode() { return this._telephoneNumber.areaCode }
-    set officeAreaCode(arg) { this._telephoneNumber.areaCode = arg }
-    get officeNumber() { return this._telephoneNumber.number }
-    set officeNumber(arg) { this._telephoneNumber.number = arg }
+  private _telephoneNumber: TelephoneNumber
+  constructor(officeAreaCode: string, officeNumber: string) {
+    this._telephoneNumber = new TelephoneNumber(officeAreaCode, officeNumber)
+  }
+  get telephoneNumber() {
+    return `(${this.officeAreaCode}) ${this.officeNumber}`
+  }
+  get officeAreaCode() {
+    return this._telephoneNumber.areaCode
+  }
+  set officeAreaCode(arg) {
+    this._telephoneNumber.areaCode = arg
+  }
+  get officeNumber() {
+    return this._telephoneNumber.number
+  }
+  set officeNumber(arg) {
+    this._telephoneNumber.number = arg
+  }
 }
 
-
 class TelephoneNumber {
-    private _areaCode: string
-    private _number: string
-    constructor(areaCode: string, number: string) {
-        this._areaCode = areaCode
-        this._number = number
-    }
+  private _areaCode: string
+  private _number: string
+  constructor(areaCode: string, number: string) {
+    this._areaCode = areaCode
+    this._number = number
+  }
 
-    get areaCode(): string {
-        return this._areaCode
-    }
-    set areaCode(value: string) {
-        this._areaCode = value
-    }
-    get number(): string {
-        return this._number
-    }
-    set number(value: string) {
-        this._number = value
-    }
+  get areaCode(): string {
+    return this._areaCode
+  }
+  set areaCode(value: string) {
+    this._areaCode = value
+  }
+  get number(): string {
+    return this._number
+  }
+  set number(value: string) {
+    this._number = value
+  }
 }

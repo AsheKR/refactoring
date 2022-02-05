@@ -8,9 +8,9 @@
 */
 
 export class Cusomter {
-    discountRate: number = 10;
+  discountRate: number = 10
 
-    applyDiscount(aNumber: number) {
-        return this.discountRate ? aNumber - (this.discountRate * aNumber) : aNumber
-    }
+  applyDiscount(aNumber: number) {
+    return this.discountRate ? aNumber - this.discountRate * aNumber : aNumber
+  }
 }

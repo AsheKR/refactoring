@@ -14,53 +14,58 @@
 저자의 경험에 따르면 컬렉션에 대해서는 어느정도 강박증을 갖고 불필요한 복제본을 만드는 편이, 예상치 못한 수정이 촉발한 오류를 디버깅하는 것보다 낫다.
 */
 
-
 export class Person {
-    private _name: string
-    private _courses: Course[]
-    constructor(name: string) {
-        this._name = name
-        this._courses = []
-    }
+  private _name: string
+  private _courses: Course[]
+  constructor(name: string) {
+    this._name = name
+    this._courses = []
+  }
 
-    get name() {return this._name}
-    get courses() {return this._courses}
-    set courses(aList) {this._courses = aList}
+  get name() {
+    return this._name
+  }
+  get courses() {
+    return this._courses
+  }
+  set courses(aList) {
+    this._courses = aList
+  }
 }
-
 
 export class Course {
-    private _name: string
-    private _isAdvanced: boolean
-    constructor(name: string, isAdvanced: boolean) {
-        this._name = name
-        this._isAdvanced = isAdvanced
-    }
-    get name() {return this._name}
-    get isAdvanced() {return this._isAdvanced}
+  private _name: string
+  private _isAdvanced: boolean
+  constructor(name: string, isAdvanced: boolean) {
+    this._name = name
+    this._isAdvanced = isAdvanced
+  }
+  get name() {
+    return this._name
+  }
+  get isAdvanced() {
+    return this._isAdvanced
+  }
 }
-
 
 function readBasicCourseNames(filename: string) {
-    return ['A', 'B', 'C']
+  return ['A', 'B', 'C']
 }
-
 
 // 역할이 뚜렷한 객체 아닌가? 왜 aPerson 이지?
 export function getClientA(aPerson: Person) {
-    return aPerson.courses.filter(c => c.isAdvanced).length
+  return aPerson.courses.filter(c => c.isAdvanced).length
 }
-
 
 export function clientB(aPerson: Person, filename: string) {
-    const basicCoursesNames = readBasicCourseNames(filename)
-    aPerson.courses = basicCoursesNames.map((name: string) => new Course(name, false))
-
+  const basicCoursesNames = readBasicCourseNames(filename)
+  aPerson.courses = basicCoursesNames.map(
+    (name: string) => new Course(name, false)
+  )
 }
 
-
 export function clientC(aPerson: Person, filename: string) {
-    for (const name of readBasicCourseNames(filename)) {
-        aPerson.courses.push(new Course(name, false))
-    }
+  for (const name of readBasicCourseNames(filename)) {
+    aPerson.courses.push(new Course(name, false))
+  }
 }

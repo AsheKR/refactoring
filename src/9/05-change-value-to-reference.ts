@@ -6,25 +6,27 @@
 일종의 저장소가 필요해진다. 각 엔티티를 표현하는 객체를 한 번만 만들고, 객체가 필요한 곳에서는 모두 이 저장소로부터 얻어 쓰는 방식이 된다.
 */
 
-
 class Order {
-    private _number: number
-    private _customer: Customer
-    constructor(data: any) {
-        this._number = data.number
-        this._customer = new Customer(data.customer)
-        // 다른 데이터를 읽어들인다.
-    }
+  private _number: number
+  private _customer: Customer
+  constructor(data: any) {
+    this._number = data.number
+    this._customer = new Customer(data.customer)
+    // 다른 데이터를 읽어들인다.
+  }
 
-    get customer() {return this._customer}
+  get customer() {
+    return this._customer
+  }
 }
 
-
 export class Customer {
-    private _id: string
-    constructor(id: string) {
-        this._id = id
-    }
+  private _id: string
+  constructor(id: string) {
+    this._id = id
+  }
 
-    get id() {return this._id}
+  get id() {
+    return this._id
+  }
 }

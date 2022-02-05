@@ -5,34 +5,43 @@
 */
 
 class TrackingInformation {
-    private _shippingCompany: string | undefined
-    private _trackNumber: string | undefined
-    get shippingCompany() { return this._shippingCompany }
-    set shippingCompany(arg) { this._shippingCompany = arg }
-    get trackNumber() { return this._trackNumber }
-    set trackNumber(arg) { this._trackNumber = arg }
-    get display() {
-        return `${this.shippingCompany}: ${this.trackNumber}`
-    }
+  private _shippingCompany: string | undefined
+  private _trackNumber: string | undefined
+  get shippingCompany() {
+    return this._shippingCompany
+  }
+  set shippingCompany(arg) {
+    this._shippingCompany = arg
+  }
+  get trackNumber() {
+    return this._trackNumber
+  }
+  set trackNumber(arg) {
+    this._trackNumber = arg
+  }
+  get display() {
+    return `${this.shippingCompany}: ${this.trackNumber}`
+  }
 }
 
-
 class Shipment {
-    private _trackingInformation: TrackingInformation | undefined
-    get trackingInfo() {
-        return this._trackingInformation?.display;
-    }
-    get trackingInformation() { return this._trackingInformation }
-    set trackingInformation(aTrackingInformation) {
-        this._trackingInformation = aTrackingInformation
-    }
+  private _trackingInformation: TrackingInformation | undefined
+  get trackingInfo() {
+    return this._trackingInformation?.display
+  }
+  get trackingInformation() {
+    return this._trackingInformation
+  }
+  set trackingInformation(aTrackingInformation) {
+    this._trackingInformation = aTrackingInformation
+  }
 }
 
 export function clientA() {
-    const trackingInformation = new TrackingInformation()
-    trackingInformation.shippingCompany = 'shippingCompany'
-    trackingInformation.trackNumber = 'trackNumber'
-    const shipment = new Shipment()
-    shipment.trackingInformation = trackingInformation
-    return shipment.trackingInfo
+  const trackingInformation = new TrackingInformation()
+  trackingInformation.shippingCompany = 'shippingCompany'
+  trackingInformation.trackNumber = 'trackNumber'
+  const shipment = new Shipment()
+  shipment.trackingInformation = trackingInformation
+  return shipment.trackingInfo
 }

@@ -4,21 +4,34 @@
 제거해도 다른 필드나 메서드들이 논리적으로 문제가 없다면 분리할 수 있다는 뜻이다.
 */
 
-
 export class Person {
-    private _name: string
-    private _officeAreaCode: string
-    private _officeNumber: string
-    constructor(name: string, officeAreaCode: string, officeNumber: string) {
-        this._name = name
-        this._officeAreaCode = officeAreaCode
-        this._officeNumber = officeNumber
-    }
-    get name() { return this._name }
-    set name(arg: string) { this._name = arg }
-    get telephoneNumber() { return `(${this.officeAreaCode}) ${this.officeNumber}` }
-    get officeAreaCode() { return this._officeAreaCode }
-    set officeAreaCode(arg) { this._officeAreaCode = arg }
-    get officeNumber() { return this._officeNumber }
-    set officeNumber(arg) { this._officeNumber = arg }
+  private _name: string
+  private _officeAreaCode: string
+  private _officeNumber: string
+  constructor(name: string, officeAreaCode: string, officeNumber: string) {
+    this._name = name
+    this._officeAreaCode = officeAreaCode
+    this._officeNumber = officeNumber
+  }
+  get name() {
+    return this._name
+  }
+  set name(arg: string) {
+    this._name = arg
+  }
+  get telephoneNumber() {
+    return `(${this.officeAreaCode}) ${this.officeNumber}`
+  }
+  get officeAreaCode() {
+    return this._officeAreaCode
+  }
+  set officeAreaCode(arg) {
+    this._officeAreaCode = arg
+  }
+  get officeNumber() {
+    return this._officeNumber
+  }
+  set officeNumber(arg) {
+    this._officeNumber = arg
+  }
 }

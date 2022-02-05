@@ -4,13 +4,14 @@
 */
 
 export class Order {
-    priority: string
-    constructor(data: any) {
-        this.priority = data.priority;
-        // 나머지 초기화 코드 생략
-    }
+  priority: string
+  constructor(data: any) {
+    this.priority = data.priority
+    // 나머지 초기화 코드 생략
+  }
 }
 
 export function gethigherPriorityCount(orders: Order[]) {
-    return orders.filter(o => 'high' === o.priority || 'rush' === o.priority).length
+  return orders.filter(o => 'high' === o.priority || 'rush' === o.priority)
+    .length
 }

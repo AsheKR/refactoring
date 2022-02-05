@@ -6,69 +6,73 @@
 구조체 여러 개에 정의된 똑같은 필드들을 갱신해야 한다면 한 번만 갱신해도 되는 다른 위치로 옮기라는 신호이다.
 */
 
-
 function dateToday() {
-    return new Date('2000-11-13')
+  return new Date('2000-11-13')
 }
 
-
 export class Customer {
-    private _name: string
-    private _discountRate: number
-    private _contract: CustomerContract
-    constructor(name: string, discountRate: number) {
-        this._name = name
-        this._discountRate = discountRate
-        this._contract = new CustomerContract((dateToday()))
-    }
+  private _name: string
+  private _discountRate: number
+  private _contract: CustomerContract
+  constructor(name: string, discountRate: number) {
+    this._name = name
+    this._discountRate = discountRate
+    this._contract = new CustomerContract(dateToday())
+  }
 
-    get discountRate() { return this._discountRate }
-    becomePreferred() {
-        this._discountRate += 0.03
-        // 다른 멋진 일들
-    }
-    applyDiscount(amount: Amount) {
-        return amount.subtract(amount.multiply(this._discountRate))
-    }
+  get discountRate() {
+    return this._discountRate
+  }
+  becomePreferred() {
+    this._discountRate += 0.03
+    // 다른 멋진 일들
+  }
+  applyDiscount(amount: Amount) {
+    return amount.subtract(amount.multiply(this._discountRate))
+  }
 }
 
 class CustomerContract {
-    private _startDate: Date
-    constructor(startDate: Date) {
-        this._startDate = startDate
-    }
+  private _startDate: Date
+  constructor(startDate: Date) {
+    this._startDate = startDate
+  }
 }
 
-
 export class Amount {
-    private _amount: number
-    constructor(amount: number)   {
-        this._amount = amount
-    }
+  private _amount: number
+  constructor(amount: number) {
+    this._amount = amount
+  }
 
-    subtract(amount: number) { return this._amount - amount }
-    multiply(amount: number) { return this._amount * amount }
+  subtract(amount: number) {
+    return this._amount - amount
+  }
+  multiply(amount: number) {
+    return this._amount * amount
+  }
 }
 
 // -----------------------------------------------------------------------------
 
 class Account {
-    private _number: number
-    private _type: AccountType
-    private _interestRate: number
-    constructor(number: number, type: AccountType, interestRate: number) {
-        this._number = number
-        this._type = type
-        this._interestRate = interestRate
-    }
+  private _number: number
+  private _type: AccountType
+  private _interestRate: number
+  constructor(number: number, type: AccountType, interestRate: number) {
+    this._number = number
+    this._type = type
+    this._interestRate = interestRate
+  }
 
-    get interestRate() { return this._interestRate }
+  get interestRate() {
+    return this._interestRate
+  }
 }
 
-
 class AccountType {
-    private _name: string
-    constructor(nameString: string) {
-        this._name = nameString
-    }
+  private _name: string
+  constructor(nameString: string) {
+    this._name = nameString
+  }
 }

@@ -11,41 +11,38 @@
 */
 
 export function clientA() {
-    const pricingPlan = retrievePricingPlan()
-    const order = retrieveOrder()
-    const baseCharge = pricingPlan.base
-    let charge
-    const chargePerUnit = pricingPlan.unit
-    const units = order.units
-    let discount
-    charge = baseCharge + units * chargePerUnit
-    let discountableUnits = Math.max(units - pricingPlan.discountThreshold, 0)
-    discount = discountableUnits * pricingPlan.discountFactor
-    if (order.isRepeat) discount += 20
-    charge = charge - discount
-    chargeOrder(charge)
-    return charge
+  const pricingPlan = retrievePricingPlan()
+  const order = retrieveOrder()
+  const baseCharge = pricingPlan.base
+  let charge
+  const chargePerUnit = pricingPlan.unit
+  const units = order.units
+  let discount
+  charge = baseCharge + units * chargePerUnit
+  let discountableUnits = Math.max(units - pricingPlan.discountThreshold, 0)
+  discount = discountableUnits * pricingPlan.discountFactor
+  if (order.isRepeat) discount += 20
+  charge = charge - discount
+  chargeOrder(charge)
+  return charge
 }
-
-
 
 function retrievePricingPlan() {
-    return {
-        base: 5000,
-        unit: 5,
-        discountThreshold: 30,
-        discountFactor: 5
-    }
+  return {
+    base: 5000,
+    unit: 5,
+    discountThreshold: 30,
+    discountFactor: 5
+  }
 }
 
-
-function retrieveOrder()  {
-    return {
-        units: 5,
-        isRepeat: true,
-    }
+function retrieveOrder() {
+  return {
+    units: 5,
+    isRepeat: true
+  }
 }
 
 function chargeOrder(charge: number) {
-    charge
+  charge
 }

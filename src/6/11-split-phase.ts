@@ -6,24 +6,33 @@
     - 코드를 수정해야할 때 두 대상을 동시에 생각할 필요 없이 하나에만 집중하기 위해서다.
 */
 
-
 interface ProductInterface {
-    basePrice: number
-    discountThreshold: number
-    discountRate: number
+  basePrice: number
+  discountThreshold: number
+  discountRate: number
 }
 
 interface ShippingMethodInterface {
-    discountThreshold: number
-    discountFee: number
-    feePerCase: number
+  discountThreshold: number
+  discountFee: number
+  feePerCase: number
 }
- 
-export function priceOrder(product: ProductInterface, quantity: number, shippingMethod: ShippingMethodInterface)  {
-    const basePrice = product.basePrice * quantity
-    const discount = Math.max(quantity - product.discountThreshold, 0) * product.basePrice * product.discountRate
-    const shippingPerCase = (basePrice > shippingMethod.discountThreshold ? shippingMethod.discountFee : shippingMethod.feePerCase)
-    const shippingCost = quantity * shippingPerCase
-    const price = basePrice - discount + shippingCost
-    return price
+
+export function priceOrder(
+  product: ProductInterface,
+  quantity: number,
+  shippingMethod: ShippingMethodInterface
+) {
+  const basePrice = product.basePrice * quantity
+  const discount =
+    Math.max(quantity - product.discountThreshold, 0) *
+    product.basePrice *
+    product.discountRate
+  const shippingPerCase =
+    basePrice > shippingMethod.discountThreshold
+      ? shippingMethod.discountFee
+      : shippingMethod.feePerCase
+  const shippingCost = quantity * shippingPerCase
+  const price = basePrice - discount + shippingCost
+  return price
 }

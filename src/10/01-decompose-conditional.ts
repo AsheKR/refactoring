@@ -7,45 +7,42 @@
 그러면 전체적인 의도가 더 확실히 드러난다. 이렇게 하면 조건이 무엇인지 강조하고, 그래서 무엇을 분기했는지가 명백해진다. 분기한 이유 역시 더 명확해진다.
 */
 
-
 export class ReferenceDate {
-    private _date: Date
-    constructor(date: Date) {
-        this._date = date
-    }
-    isBefore(date: Date) {
-        return this._date < date
-    }
-    isAfter(date: Date) {
-        return this._date > date
-    }
+  private _date: Date
+  constructor(date: Date) {
+    this._date = date
+  }
+  isBefore(date: Date) {
+    return this._date < date
+  }
+  isAfter(date: Date) {
+    return this._date > date
+  }
 }
 
-
 interface Plan {
-    summerStart: Date
-    summerEnd: Date
-    summerRate: number
-    regularRate: number
-    regularServiceCharge: number
+  summerStart: Date
+  summerEnd: Date
+  summerRate: number
+  regularRate: number
+  regularServiceCharge: number
 }
 
 const plan: Plan = {
-    summerStart: new Date('2022-06-21'),
-    summerEnd: new Date('2022-09-23'),
-    summerRate: 9,
-    regularRate: 5,
-    regularServiceCharge: 10
+  summerStart: new Date('2022-06-21'),
+  summerEnd: new Date('2022-09-23'),
+  summerRate: 9,
+  regularRate: 5,
+  regularServiceCharge: 10
 }
 
-
 export function clientA(aDate: ReferenceDate, quantity: number) {
-    let charge = 0
-    if (!aDate.isBefore(plan.summerStart) && !aDate.isAfter(plan.summerEnd)) {
-        charge = quantity * plan.summerRate
-    } else {
-        charge = quantity * plan.regularRate + plan.regularServiceCharge
-    }
+  let charge = 0
+  if (!aDate.isBefore(plan.summerStart) && !aDate.isAfter(plan.summerEnd)) {
+    charge = quantity * plan.summerRate
+  } else {
+    charge = quantity * plan.regularRate + plan.regularServiceCharge
+  }
 
-    return charge
+  return charge
 }

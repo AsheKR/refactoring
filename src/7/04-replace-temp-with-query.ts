@@ -11,25 +11,23 @@
 또한 이 계산 로직은 다음번에 사용될 때 수행해도 똑같은 결과를 내야 한다.
 */
 
-
 interface ItemInterface {
-    price: number
+  price: number
 }
 
-
 export class Order {
-    private _quantity: number;
-    private _item: ItemInterface;
-    constructor(quantity: number, item: ItemInterface) {
-        this._quantity = quantity;
-        this._item = item;
-    }
+  private _quantity: number
+  private _item: ItemInterface
+  constructor(quantity: number, item: ItemInterface) {
+    this._quantity = quantity
+    this._item = item
+  }
 
-    get price() {
-        let basePrice = this._quantity * this._item.price
-        let discountFactor = 0.98
-        
-        if (basePrice > 1000) discountFactor -= 0.03
-        return basePrice * discountFactor
-    }
+  get price() {
+    let basePrice = this._quantity * this._item.price
+    let discountFactor = 0.98
+
+    if (basePrice > 1000) discountFactor -= 0.03
+    return basePrice * discountFactor
+  }
 }

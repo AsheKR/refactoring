@@ -3,21 +3,20 @@
 객체가 파이프라인을 따라 흐르며 어떻게 처리되는지를 읽을 수 있기 때문이다.
 */
 
-
 export function acquireData(input: string) {
-    const lines = input.split('\n')
-    let firstLine = true
-    const result = []
-    for (const line of lines) {
-        if (firstLine) {
-            firstLine = false
-            continue
-        }
-        if (line.trim() == '') continue
-        const record = line.split(',')
-        if (record[1].trim() === 'India') {
-            result.push({city: record[0].trim(), phone: record[2].trim()})
-        }
+  const lines = input.split('\n')
+  let firstLine = true
+  const result = []
+  for (const line of lines) {
+    if (firstLine) {
+      firstLine = false
+      continue
     }
-    return result
+    if (line.trim() == '') continue
+    const record = line.split(',')
+    if (record[1].trim() === 'India') {
+      result.push({city: record[0].trim(), phone: record[2].trim()})
+    }
+  }
+  return result
 }

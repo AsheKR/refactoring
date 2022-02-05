@@ -3,20 +3,20 @@
 return 문이 하나일 필요가 없다고 저자는 주장한다.
 */
 
-function sendAlert()  {}
+function sendAlert() {}
 
 function findPeople(people: string[]) {
-    let found = false
-    for (const p of people) {
-        if (!found) {
-            if (p === '조커') {
-                sendAlert()
-                found = true
-            }
-            if (p === '사루만') {
-                sendAlert()
-                found = true
-            }
-        }
+  let found = false
+  for (const p of people) {
+    if (!found) {
+      if (p === '조커') {
+        sendAlert()
+        found = true
+      }
+      if (p === '사루만') {
+        sendAlert()
+        found = true
+      }
     }
+  }
 }

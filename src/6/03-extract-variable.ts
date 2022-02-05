@@ -10,38 +10,42 @@
     객체는 특정 로직과 데이터를 외부와 공유하려 할 때 공유할 정보를 설명해주는 적당한 크기의 문맥이 되어준다.
 */
 
-
 interface OrderInterface {
-    quantity: number
-    itemPrice: number
+  quantity: number
+  itemPrice: number
 }
-
 
 export function price(order: OrderInterface) {
-    // 기본 가격 - 수량 할인 + 배송비 
-    return order.quantity * order.itemPrice - 
-    Math.max(0, order.quantity - 500) * order.itemPrice * 0.05 + 
+  // 기본 가격 - 수량 할인 + 배송비
+  return (
+    order.quantity * order.itemPrice -
+    Math.max(0, order.quantity - 500) * order.itemPrice * 0.05 +
     Math.min(order.quantity * order.itemPrice * 0.1, 100)
+  )
 }
-
 
 // -----------------------------------------------------------------------------
 
-
 export class Order {
-    private _data: OrderInterface
+  private _data: OrderInterface
 
-    constructor(aRecord: OrderInterface) {
-        this._data = aRecord
-    }
+  constructor(aRecord: OrderInterface) {
+    this._data = aRecord
+  }
 
-    get quantity() {return this._data.quantity}
-    get itemPrice() {return this._data.itemPrice}
+  get quantity() {
+    return this._data.quantity
+  }
+  get itemPrice() {
+    return this._data.itemPrice
+  }
 
-    get price() {
-        // 기본 가격 - 수량 할인 + 배송비 
-        return this.quantity * this.itemPrice - 
-        Math.max(0, this.quantity - 500) * this.itemPrice * 0.05 + 
-        Math.min(this.quantity * this.itemPrice * 0.1, 100)
-    }
+  get price() {
+    // 기본 가격 - 수량 할인 + 배송비
+    return (
+      this.quantity * this.itemPrice -
+      Math.max(0, this.quantity - 500) * this.itemPrice * 0.05 +
+      Math.min(this.quantity * this.itemPrice * 0.1, 100)
+    )
+  }
 }

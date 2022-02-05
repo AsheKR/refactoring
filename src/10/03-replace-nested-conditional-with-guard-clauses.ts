@@ -10,46 +10,45 @@
 이와 달리 보호 구문은 "이건 이 함수의 핵심이 아니다. 이 일이 일어나면 무언가 조치를 취한 후 함수에서 빠져나온다" 라고 이야기 한다.
 */
 
-
 interface Employee {
-    isSeparated: boolean
-    isRetired: boolean
+  isSeparated: boolean
+  isRetired: boolean
 }
 
-
 export function payAmount(employee: Employee) {
-    let result
-    if (employee.isSeparated) {
-        result = {amount: 0, reasonCode: 'SEP'}
+  let result
+  if (employee.isSeparated) {
+    result = {amount: 0, reasonCode: 'SEP'}
+  } else {
+    if (employee.isRetired) {
+      result = {amount: 0, reasonCode: 'RET'}
     } else {
-        if (employee.isRetired) {
-            result = {amount: 0, reasonCode: 'RET'}
-        }
-        else {
-            // 급여 계산 로직
-            result = {amount: 1}
-        }
+      // 급여 계산 로직
+      result = {amount: 1}
     }
-    
-    return result
+  }
+
+  return result
 }
 
 // -----------------------------------------------------------------------------
 
 interface Instrument {
-    capital: number,
-    interstRate: number
-    duration: number
-    income: number
-    adjustmentFactor: number
-} 
+  capital: number
+  interstRate: number
+  duration: number
+  income: number
+  adjustmentFactor: number
+}
 
 export function adjustedCapital(anInstrument: Instrument) {
-    let result = 0
-    if (anInstrument.capital > 0) {
-        if (anInstrument.interstRate > 0 && anInstrument.duration > 0) {
-            result = (anInstrument.income / anInstrument.duration) * anInstrument.adjustmentFactor
-        }
+  let result = 0
+  if (anInstrument.capital > 0) {
+    if (anInstrument.interstRate > 0 && anInstrument.duration > 0) {
+      result =
+        (anInstrument.income / anInstrument.duration) *
+        anInstrument.adjustmentFactor
     }
-    return result
+  }
+  return result
 }

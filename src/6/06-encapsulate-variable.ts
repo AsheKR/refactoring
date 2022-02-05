@@ -32,16 +32,15 @@
     - Deeply Immutable Object 를 뜻한다
 */
 
-
 // FIXME: defaultOwner 가 Test 에서 참조되고있다면, Test 도 변경해야하는게 맞을까요? 아니면 테스트가 잘못된걸까요?
 export let defaultOwner = {firstName: '마틴', lastName: '파울러'}
 
 export function createSpaceShip() {
-    return  {
-        'owner': defaultOwner
-    }
+  return {
+    owner: defaultOwner
+  }
 }
 
 export function changeDefaultOwner() {
-    defaultOwner = {firstName: '레베카', lastName: '파슨스'}
+  defaultOwner = {firstName: '레베카', lastName: '파슨스'}
 }

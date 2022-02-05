@@ -8,26 +8,26 @@
 */
 
 interface Employee {
-    seniority: number
-    monthsDisabled: number
-    isPartTime: boolean
+  seniority: number
+  monthsDisabled: number
+  isPartTime: boolean
 }
 
 export function disabilityAmount(anEmployee: Employee) {
-    if (anEmployee.seniority < 2) return 0;
-    if (anEmployee.monthsDisabled < 12) return 0;
-    if (anEmployee.isPartTime) return 0;
-    // 장애 수당 계산
-    return 1
+  if (anEmployee.seniority < 2) return 0
+  if (anEmployee.monthsDisabled < 12) return 0
+  if (anEmployee.isPartTime) return 0
+  // 장애 수당 계산
+  return 1
 }
 
 // -----------------------------------------------------------------------------
 
 function amount(anEmployee: any) {
-    if (anEmployee.onVacation) {
-        if(anEmployee.seniority > 10) {
-            return 1
-        }
-        return 0.5
+  if (anEmployee.onVacation) {
+    if (anEmployee.seniority > 10) {
+      return 1
     }
+    return 0.5
+  }
 }

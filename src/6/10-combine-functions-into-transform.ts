@@ -15,58 +15,56 @@
 import * as _ from 'lodash'
 
 interface ReadingInterface {
-    customer: string
-    quantity: number
-    month: number
-    year: number
+  customer: string
+  quantity: number
+  month: number
+  year: number
 }
 
 function aquireReading() {
-    return Object.assign({}, {
-        customer: 'ivan',
-        quantity: 10,
-        month: 5,
-        year: 2017,
-    })
+  return Object.assign(
+    {},
+    {
+      customer: 'ivan',
+      quantity: 10,
+      month: 5,
+      year: 2017
+    }
+  )
 }
-
 
 function taxThreshold(year: number) {
-    return year
+  return year
 }
-
 
 function baseRate(month: number, year: number) {
-    return year
+  return year
 }
-
 
 function calcBaseCharge(aReading: ReadingInterface) {
-    return baseRate(aReading.month, aReading.year) * aReading.quantity
+  return baseRate(aReading.month, aReading.year) * aReading.quantity
 }
 
-
 export function clientA() {
-    const aReading = aquireReading();
-    const baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity
-    return baseCharge
+  const aReading = aquireReading()
+  const baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity
+  return baseCharge
 }
 
 export function clientB() {
-    const aReading = aquireReading();
-    const base = baseRate(aReading.month, aReading.year) * aReading.quantity
-    const taxableCharge = Math.max(0, base - taxThreshold(aReading.year))
-    return taxableCharge
+  const aReading = aquireReading()
+  const base = baseRate(aReading.month, aReading.year) * aReading.quantity
+  const taxableCharge = Math.max(0, base - taxThreshold(aReading.year))
+  return taxableCharge
 }
 
-
 export function clientC() {
-    const aReading = aquireReading();
-    const baseChargeAmount = calculateBaseCharge(aReading)
+  const aReading = aquireReading()
+  const baseChargeAmount = calculateBaseCharge(aReading)
 
-    function calculateBaseCharge(aReading: ReadingInterface) {
-        return baseRate(aReading.month, aReading.year) * aReading.quantity
-    }
+  function calculateBaseCharge(aReading: ReadingInterface) {
+    return baseRate(aReading.month, aReading.year) * aReading.quantity
+  }
 
-    return baseChargeAmount
+  return baseChargeAmount
 }

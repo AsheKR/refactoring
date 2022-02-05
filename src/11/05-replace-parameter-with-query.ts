@@ -8,28 +8,29 @@
 이런 함수는 동작을 예측하고 테스트하기 훨씬 쉬우니 이 특성이 사라지지 않게 주의하자. 따라서 매개변수를 없애는 대신, 가변 전역 변수를 이용하는 일은 안된다.
 */
 
-
 export class Order {
-    quantity: number
-    itemPrice: number
+  quantity: number
+  itemPrice: number
 
-    constructor(quantity: number, itemPrice: number) {
-        this.quantity = quantity
-        this.itemPrice = itemPrice
-    }
+  constructor(quantity: number, itemPrice: number) {
+    this.quantity = quantity
+    this.itemPrice = itemPrice
+  }
 
-    get finalPrice() {
-        const basePrice = this.quantity * this.itemPrice
-        let discountLevel
-        if (this.quantity > 100) discountLevel = 2
-        else discountLevel = 1
-        return this.discountedPrice(basePrice, discountLevel)
-    }
+  get finalPrice() {
+    const basePrice = this.quantity * this.itemPrice
+    let discountLevel
+    if (this.quantity > 100) discountLevel = 2
+    else discountLevel = 1
+    return this.discountedPrice(basePrice, discountLevel)
+  }
 
-    discountedPrice(basePrice: number,  discountLevel: number) {
-        switch(discountLevel) {
-            case 1: return basePrice * 0.95
-            case 2: return basePrice * 0.9
-        }
+  discountedPrice(basePrice: number, discountLevel: number) {
+    switch (discountLevel) {
+      case 1:
+        return basePrice * 0.95
+      case 2:
+        return basePrice * 0.9
     }
+  }
 }

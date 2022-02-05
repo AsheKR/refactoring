@@ -7,57 +7,53 @@
     - 변환 함수로 묶는 것보다 두드러진 장점은 클라이언트가 객체의 핵심 데이터를 변경할 수 있고, 파생 객체를 일관되게 관리할 수 있다는 것이다.
 */
 
-
 interface ReadingInterface {
-    customer: string
-    quantity: number
-    month: number
-    year: number
+  customer: string
+  quantity: number
+  month: number
+  year: number
 }
 
 function aquireReading() {
-    return Object.assign({}, {
-        customer: 'ivan',
-        quantity: 10,
-        month: 5,
-        year: 2017,
-    })
+  return Object.assign(
+    {},
+    {
+      customer: 'ivan',
+      quantity: 10,
+      month: 5,
+      year: 2017
+    }
+  )
 }
-
 
 function taxThreshold(year: number) {
-    return year
+  return year
 }
-
 
 function baseRate(month: number, year: number) {
-    return year
+  return year
 }
 
-
-
-
 export function clientA() {
-    const aReading = aquireReading();
-    const baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity
-    return baseCharge
+  const aReading = aquireReading()
+  const baseCharge = baseRate(aReading.month, aReading.year) * aReading.quantity
+  return baseCharge
 }
 
 export function clientB() {
-    const aReading = aquireReading();
-    const base = baseRate(aReading.month, aReading.year) * aReading.quantity
-    const taxableCharge = Math.max(0, base - taxThreshold(aReading.year))
-    return taxableCharge
+  const aReading = aquireReading()
+  const base = baseRate(aReading.month, aReading.year) * aReading.quantity
+  const taxableCharge = Math.max(0, base - taxThreshold(aReading.year))
+  return taxableCharge
 }
 
-
 export function clientC() {
-    const aReading = aquireReading();
-    const baseChargeAmount = calculateBaseCharge(aReading)
+  const aReading = aquireReading()
+  const baseChargeAmount = calculateBaseCharge(aReading)
 
-    function calculateBaseCharge(aReading: ReadingInterface) {
-        return baseRate(aReading.month, aReading.year) * aReading.quantity
-    }
+  function calculateBaseCharge(aReading: ReadingInterface) {
+    return baseRate(aReading.month, aReading.year) * aReading.quantity
+  }
 
-    return baseChargeAmount
+  return baseChargeAmount
 }

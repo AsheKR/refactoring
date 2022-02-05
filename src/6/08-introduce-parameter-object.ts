@@ -10,45 +10,48 @@
     - 같은 데이터 구조를 사용하는 모든 함수가 원소를 참조할 때 같은 이름을 사용하므로 일관성을 높여준다.
 */
 
-
 interface ReadingInterface {
-    temp: number
-    time: string
+  temp: number
+  time: string
 }
-
 
 interface StationInterface {
-    name: string
-    readings: Array<ReadingInterface>
+  name: string
+  readings: Array<ReadingInterface>
 }
-
 
 interface OperatingPlanInterface {
-    temperatureFloor: number
-    temperatureCeiling: number
+  temperatureFloor: number
+  temperatureCeiling: number
 }
 
-
-
-function readingsOutsideRange(station: StationInterface, min: number, max: number) {
-    return station.readings.filter(r => r.temp < min || r.temp > max)
+function readingsOutsideRange(
+  station: StationInterface,
+  min: number,
+  max: number
+) {
+  return station.readings.filter(r => r.temp < min || r.temp > max)
 }
 
 export function callReadingOutsideRange() {
-    const station: StationInterface = {
-        name: 'ZB1',
-        readings: [
-            {temp: 47, time: "2016-11-10 09:10"},
-            {temp: 53, time: "2016-11-10 09:20"},
-            {temp: 58, time: "2016-11-10 09:30"},
-            {temp: 53, time: "2016-11-10 09:40"},
-            {temp: 51, time: "2016-11-10 09:50"},
-        ]
-    }
-    const operatingPlan: OperatingPlanInterface = {
-        temperatureFloor: 50,
-        temperatureCeiling: 55
-    }
-    const alerts = readingsOutsideRange(station, operatingPlan.temperatureFloor, operatingPlan.temperatureCeiling)
-    return alerts
+  const station: StationInterface = {
+    name: 'ZB1',
+    readings: [
+      {temp: 47, time: '2016-11-10 09:10'},
+      {temp: 53, time: '2016-11-10 09:20'},
+      {temp: 58, time: '2016-11-10 09:30'},
+      {temp: 53, time: '2016-11-10 09:40'},
+      {temp: 51, time: '2016-11-10 09:50'}
+    ]
+  }
+  const operatingPlan: OperatingPlanInterface = {
+    temperatureFloor: 50,
+    temperatureCeiling: 55
+  }
+  const alerts = readingsOutsideRange(
+    station,
+    operatingPlan.temperatureFloor,
+    operatingPlan.temperatureCeiling
+  )
+  return alerts
 }

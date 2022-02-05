@@ -9,34 +9,35 @@
 여기서 핵심은 항상 단계를 잘게 나눠서 처리하는 데 있다.
 */
 
-
 interface DriverInterface {
-    numberOfLateDeliveries: number
+  numberOfLateDeliveries: number
 }
 
-
 export function rating(aDriver: DriverInterface) {
-    return moreThanFiveLateDeliveries(aDriver) ? 2 : 1;
+  return moreThanFiveLateDeliveries(aDriver) ? 2 : 1
 }
 
 function moreThanFiveLateDeliveries(aDriver: DriverInterface) {
-    return aDriver.numberOfLateDeliveries > 5;
+  return aDriver.numberOfLateDeliveries > 5
 }
 
 // -----------------------------------------------------------------------------
 
 interface CustomerInterface {
-    name: string
-    location: string
+  name: string
+  location: string
 }
 
 export function reportLines(aCustomer: CustomerInterface) {
-    const lines: Array<[string, string]> = [];
-    gatherCustomerData(lines, aCustomer);
-    return lines;
+  const lines: Array<[string, string]> = []
+  gatherCustomerData(lines, aCustomer)
+  return lines
 }
 
-function gatherCustomerData(out: Array<[string, string]>, aCustomer: CustomerInterface) {
-    out.push(['name', aCustomer.name]);
-    out.push(['location', aCustomer.location]);
+function gatherCustomerData(
+  out: Array<[string, string]>,
+  aCustomer: CustomerInterface
+) {
+  out.push(['name', aCustomer.name])
+  out.push(['location', aCustomer.location])
 }

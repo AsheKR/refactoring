@@ -8,19 +8,19 @@
     - 데이터 구조를 받아 다른 데이터 구조로 변환해 반환하는 함수
 */
 
-
 interface Adjustment {
-    amount: number
+  amount: number
 }
 
-
 export class ProductionPlan {
-    private _production: number = 0 ;
-    private _adjustments: Adjustment[] = [];
+  private _production: number = 0
+  private _adjustments: Adjustment[] = []
 
-    get production() { return this._production }
-    applyAdjustment(anAdjustment: Adjustment) {
-        this._adjustments.push(anAdjustment)
-        this._production += anAdjustment.amount
-    }
+  get production() {
+    return this._production
+  }
+  applyAdjustment(anAdjustment: Adjustment) {
+    this._adjustments.push(anAdjustment)
+    this._production += anAdjustment.amount
+  }
 }

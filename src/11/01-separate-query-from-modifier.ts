@@ -5,17 +5,17 @@
 겉보기 부수효과가 있는 함수와 없는 함수는 명확히 구분하는 것이 좋다. 이를 위한 한 가지 방법은 '질의 함수(읽기 함수)는 모두 부수효과가 없어야 한다.' 는 규칙을 따르는 것이다.
 이를 명령-질의 분리라 한다. 만약 값을 반환하면서 상태를 변경하는 부분이 있다면 분리해야한다.
 */
-function sendAlarm()  {}
+function sendAlarm() {}
 
 export function alertForMiscreant(people: string[]) {
-    for (const p of people) {
-        if (p === '조커') {
-            return '조커'
-        }
-        if (p === '사루만') {
-            sendAlarm()
-            return '사루만'
-        }
+  for (const p of people) {
+    if (p === '조커') {
+      return '조커'
     }
-    return ''
+    if (p === '사루만') {
+      sendAlarm()
+      return '사루만'
+    }
+  }
+  return ''
 }

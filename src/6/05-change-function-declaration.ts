@@ -13,42 +13,40 @@
 
 // circumference 로 변경해야 함
 export function circum(radius: number) {
-    return 2 * Math.PI * radius
+  return 2 * Math.PI * radius
 }
 
 // -----------------------------------------------------------------------------
 
 export class Book {
-    private _reservations: string[] = []
+  private _reservations: string[] = []
 
-    get reservations() {
-        return this._reservations
-    }
+  get reservations() {
+    return this._reservations
+  }
 
-    // 우선 순위 큐 지원을 위해 isPriority 매개변수를 추가하려 한다.
-    addReservation(customer: string) {
-        this._reservations.push(customer)
-    }
+  // 우선 순위 큐 지원을 위해 isPriority 매개변수를 추가하려 한다.
+  addReservation(customer: string) {
+    this._reservations.push(customer)
+  }
 }
-
 
 // -----------------------------------------------------------------------------
 
 interface AddressInterface {
-    state: string
+  state: string
 }
-
-
 
 export interface CustomerInterface {
-    address: AddressInterface
+  address: AddressInterface
 }
-
 
 function inNewEngland(aCustomer: CustomerInterface) {
-    return ['MA', 'CT', 'ME', 'VT', 'NH', 'RI'].includes(aCustomer.address.state)
+  return ['MA', 'CT', 'ME', 'VT', 'NH', 'RI'].includes(aCustomer.address.state)
 }
 
-export function isInNewEnglandInSomeCustomers(someCustomers: CustomerInterface[]) {
-    return someCustomers.filter(c => inNewEngland(c));
+export function isInNewEnglandInSomeCustomers(
+  someCustomers: CustomerInterface[]
+) {
+  return someCustomers.filter(c => inNewEngland(c))
 }

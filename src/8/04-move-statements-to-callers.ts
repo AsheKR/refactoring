@@ -6,86 +6,96 @@
 그렇다면 개발자는 달라진 동작을 함수에서 꺼내 해당 호출자로 옮겨야 한다.
 */
 
-
 function dateToday() {
-    return new Date('2000-11-13')
+  return new Date('2000-11-13')
 }
 
 function recentDateCutOff() {
-    return new Date('2000-10-13')
+  return new Date('2000-10-13')
 }
 
 export class Photo {
-    private _location: string
-    private _src: string
-    private _date: Date
-    private _title: string
+  private _location: string
+  private _src: string
+  private _date: Date
+  private _title: string
 
-    constructor(title: string, location: string, src: string) {
-        this._title = title
-        this._location = location
-        this._src = src
-        this._date = dateToday()
-    }
+  constructor(title: string, location: string, src: string) {
+    this._title = title
+    this._location = location
+    this._src = src
+    this._date = dateToday()
+  }
 
-    get title() {return this._title}
-    get location() {return this._location}
-    get src() {return this._src}
-    get date() {return this._date}
-    toDateString() {
-        return this._date.toDateString()
-    }
+  get title() {
+    return this._title
+  }
+  get location() {
+    return this._location
+  }
+  get src() {
+    return this._src
+  }
+  get date() {
+    return this._date
+  }
+  toDateString() {
+    return this._date.toDateString()
+  }
 }
-
 
 export class Person {
-    private _name: string
-    private _photo: Photo
-    constructor(name: string, photo: Photo) {
-        this._name = name
-        this._photo = photo
-    }
+  private _name: string
+  private _photo: Photo
+  constructor(name: string, photo: Photo) {
+    this._name = name
+    this._photo = photo
+  }
 
-    get name() {return this._name}
-    get photo() {return this._photo}
+  get name() {
+    return this._name
+  }
+  get photo() {
+    return this._photo
+  }
 }
-
 
 export class OutStream {
-    private _content: string
-    constructor(content: string) {
-        this._content = content
-    }
+  private _content: string
+  constructor(content: string) {
+    this._content = content
+  }
 
-    write(content: string) {this._content = this._content.concat(content)}
-    toString() {
-        return this._content
-    }
+  write(content: string) {
+    this._content = this._content.concat(content)
+  }
+  toString() {
+    return this._content
+  }
 }
 
-
 export function renderPerson(outStream: OutStream, person: Person) {
-    outStream.write(`<p>${person.name}</p>\n`)
-    renderPhoto(outStream, person.photo)
-    emitPhotoData(outStream, person.photo)
+  outStream.write(`<p>${person.name}</p>\n`)
+  renderPhoto(outStream, person.photo)
+  emitPhotoData(outStream, person.photo)
 }
 
 export function listRecentPhotos(outStream: OutStream, photos: Photo[]) {
-    photos
-        .filter(p => p.date > recentDateCutOff())
-        .forEach(p => {
-            outStream.write('<div>\n')
-            emitPhotoData(outStream, p)
-            outStream.write('</div>\n')
-        })
+  photos
+    .filter(p => p.date > recentDateCutOff())
+    .forEach(p => {
+      outStream.write('<div>\n')
+      emitPhotoData(outStream, p)
+      outStream.write('</div>\n')
+    })
 }
 
 function emitPhotoData(outStream: OutStream, aPhoto: Photo) {
-    outStream.write(`<p>위치: ${aPhoto.location}</p>\n`)
-    outStream.write(`<p>날짜: ${aPhoto.toDateString()}</p>\n`)
+  outStream.write(`<p>위치: ${aPhoto.location}</p>\n`)
+  outStream.write(`<p>날짜: ${aPhoto.toDateString()}</p>\n`)
 }
 
 function renderPhoto(outStream: OutStream, aPhoto: Photo) {
-    outStream.write(`<img src=${aPhoto.src} />\n`)
-    outStream.write('<br />\n')
+  outStream.write(`<img src=${aPhoto.src} />\n`)
+  outStream.write('<br />\n')
 }

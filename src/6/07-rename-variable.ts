@@ -5,19 +5,18 @@
 저자가 가장 신중하게 이름 짓는 대상이 바로 이런 필드이다.
 */
 
-
-interface ObjInterface{
-    articleTitle: string
+interface ObjInterface {
+  articleTitle: string
 }
 
-let tpHd = "untitled";
+let tpHd = 'untitled'
 
 function getResult() {
-    return `<h1>${tpHd}</h1>`
+  return `<h1>${tpHd}</h1>`
 }
 
-function setTpHd(obj: ObjInterface)  {
-    tpHd = obj.articleTitle
+function setTpHd(obj: ObjInterface) {
+  tpHd = obj.articleTitle
 }
 
 // -----------------------------------------------------------------------------

@@ -5,34 +5,45 @@
 */
 
 class Person {
-    private _name: string;
-    private _department: Department;
-    constructor(name: string, department: Department) {
-        this._name = name
-        this._department = department
-    }
+  private _name: string
+  private _department: Department
+  constructor(name: string, department: Department) {
+    this._name = name
+    this._department = department
+  }
 
-    get name() {return this._name}
-    get manager() {return this._department}
+  get name() {
+    return this._name
+  }
+  get manager() {
+    return this._department
+  }
 }
 
-
 class Department {
-    private _manager: string | undefined;
-    private _chargeCode: string | undefined;
-    get chargeCode() {return this._chargeCode}
-    set chargeCode(arg) {this._chargeCode = arg}
-    get manager() {return this._manager}
-    set manager(arg) {this._manager = arg}
+  private _manager: string | undefined
+  private _chargeCode: string | undefined
+  get chargeCode() {
+    return this._chargeCode
+  }
+  set chargeCode(arg) {
+    this._chargeCode = arg
+  }
+  get manager() {
+    return this._manager
+  }
+  set manager(arg) {
+    this._manager = arg
+  }
 }
 
 export function clientA() {
-    const department = new Department()
-    department.manager = 'Manager'
-    department.chargeCode = 'CC'
+  const department = new Department()
+  department.manager = 'Manager'
+  department.chargeCode = 'CC'
 
-    const aPerson = new Person('Ashe', department)
+  const aPerson = new Person('Ashe', department)
 
-    const manager = aPerson.manager
-    return manager
+  const manager = aPerson.manager
+  return manager
 }
